@@ -8,7 +8,6 @@ class Solution {
     bool canVisitAllRooms(std::vector<std::vector<int>> &rooms) {
         visited.resize(rooms.size(), false);
         visited[0] = true;
-    std:
         std::stack<std::vector<int>> nextRooms;
         nextRooms.push(rooms[0]);
         while (!nextRooms.empty()) {
