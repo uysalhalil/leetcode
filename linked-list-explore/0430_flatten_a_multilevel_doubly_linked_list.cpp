@@ -14,7 +14,7 @@ class Solution {
    public:
     Node* flatten(Node* head) {
         std::stack<Node*> st;
-        Node* dmyHead = new Node(0);
+        Node* dmyHead = new Node();
         dmyHead->next = head;
         Node* curr{dmyHead};
         Node* prev{nullptr};
