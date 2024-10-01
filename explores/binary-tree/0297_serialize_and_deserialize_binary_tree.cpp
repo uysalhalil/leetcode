@@ -6,7 +6,6 @@
 class Codec {
     size_t colon{0};
     int currentPos = 0;
-    std::string subtree{""};
 
    public:
     // Encodes a tree to a single string.
