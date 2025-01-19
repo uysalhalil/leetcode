@@ -2,6 +2,8 @@ from collections import deque
 from copy import copy
 from typing import List
 
+from UnionFind import UnionFind
+
 
 class Solution:
     def buildTree(self, n, edges) -> None:
@@ -58,5 +60,13 @@ class Solution:
 
 
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
-        self.buildTree(n, edges)
-        return (not self.hasCycle()) and self.canVisit()
+        # Solution 1 - sort of brute force
+        # self.buildTree(n, edges)
+        # return (not self.hasCycle()) and self.canVisit()
+        
+        uf = UnionFind(n)
+        for edge in edges:
+            uf.union(edge[0], edge[1])
+
+        return (not uf.hasCycle) and (uf.numRoots == 1)
+        
