@@ -1,6 +1,7 @@
 class UnionFind:
     def __init__(self, n: int):
         self.provinces = n
+        self.hasCycle = False
         self.root = [x for x in range(n)]
         self.rank = [1 for x in range(n)]
 
@@ -24,6 +25,8 @@ class UnionFind:
             else:
                 self.root[rootY] = rootX
                 self.rank[rootX] += 1
+        else:
+            self.hasCycle = True
 
     def connected(self, x: int, y: int) -> bool:
         return self.find(x) == self.find(y)
